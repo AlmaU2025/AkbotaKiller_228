@@ -1,0 +1,72 @@
+/* style.css */
+
+/* 1. Общие стили body */
+body {
+  background-color: #f8f9fa; /* Светло-серый фон (по умолчанию в Bootstrap тоже есть серость, но тут усиливаем) */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. Заголовки */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600; 
+  margin-bottom: 1rem;
+}
+
+/* 3. Кнопки (добавим чуть больше округления) */
+.btn {
+  border-radius: 6px !important; /* important, чтобы перебить дефолтный Bootstrap */
+}
+
+/* 4. Контейнер сверху - чуть больше отступ */
+.container {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+/* 5. Стили для alert (если используете alert в шаблонах) */
+.alert {
+  margin: 20px 0;
+  padding: 1rem 1.25rem;
+  border-radius: 5px;
+}
+
+/* 6. Кастомизация Navbar */
+.navbar {
+  margin-bottom: 2rem;
+}
+
+/* 7. Пример стилей для форм (когда используете без form-control) */
+input[type="text"],
+input[type="number"],
+select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* 8. Пример: класс, чтобы "обернуть" контент в карточку */
+.card-custom {
+  background: #fff;
+  border: 1px solid #e3e3e3;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+/* 9. Пример: класс для "шапки" (header) */
+header.site-header {
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+  margin-bottom: 20px;
+}
+
+/* 10. Пример: класс для футера (если сделаете footer) */
+footer.site-footer {
+  background: #f8f9fa;
+  padding: 15px;
+  text-align: center;
+  color: #6c757d;
+}

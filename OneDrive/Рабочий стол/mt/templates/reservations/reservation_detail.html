@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Детали брони</h2>
+  <p>Клиент: {{ reservation.customer.name }}</p>
+  <p>Телефон: {{ reservation.customer.phone }}</p>
+  <p>Стол: {{ reservation.table.number }}</p>
+  <p>Дата: {{ reservation.date }}</p>
+  <p>Статус: {{ reservation.status }}</p>
+  <form method="POST" action="{% url 'reservation_update' reservation.id %}">
+    {% csrf_token %}
+    <label>Изменить статус:</label>
+    <select name="status">
+      <option value="pending">Pending</option>
+      <option value="confirmed">Confirmed</option>
+      <option value="canceled">Canceled</option>
+    </select>
+    <button type="submit">Сохранить</button>
+  </form>
+  <form method="POST" action="{% url 'reservation_delete' reservation.id %}">
+    {% csrf_token %}
+    <button type="submit">Удалить бронь</button>
+  </form>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="card-custom">
+    <div class="title-error">Ошибка</div>
+    <p>{{ error_message }}</p>
+    <hr>
+    <p>
+      Возможно, вам нужно
+      <a href="{% url 'customer_create' %}" class="btn btn-primary btn-sm">Создать клиента</a>
+      или
+      <a href="{% url 'customer_list' %}" class="btn btn-outline-secondary btn-sm">Просмотреть клиентов</a>.
+    </p>
+  </div>
+</div>
+{% endblock %}

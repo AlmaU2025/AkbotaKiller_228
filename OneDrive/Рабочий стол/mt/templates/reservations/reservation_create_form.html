@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block title %}Создать бронь{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <h2>Создать бронь</h2>
+  <form method="POST" class="mb-4">
+    {% csrf_token %}
+
+    <!-- Выпадающий список для выбора клиента -->
+    <div class="mb-3">
+      <label for="id_customer_id" class="form-label">Клиент</label>
+      <select name="customer_id" id="id_customer_id" class="form-select" required>
+        <option value="">-- Выберите клиента --</option>
+        {% for c in customers %}
+          <option value="{{ c.id }}">{{ c.name }} ({{ c.phone }})</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <!-- Выпадающий список для выбора стола -->
+    <div class="mb-3">
+      <label for="id_table_id" class="form-label">Стол</label>
+      <select name="table_id" id="id_table_id" class="form-select" required>
+        <option value="">-- Выберите стол --</option>
+        {% for t in tables %}
+          <option value="{{ t.id }}">Стол #{{ t.number }} ({{ t.seats }} мест)</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <!-- Поле для ввода даты -->
+    <div class="mb-3">
+      <label for="id_date" class="form-label">Дата</label>
+      <input type="text" class="form-control" name="date" id="id_date"
+             placeholder="YYYY-MM-DD или DD.MM.YYYY" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Создать</button>
+  </form>
+
+  <hr>
+
+  <h3>Список всех бронирований</h3>
+  <table class="table table-bordered table-hover align-middle">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Клиент</th>
+        <th>Телефон</th>
+        <th>Стол</th>
+        <th>Дата</th>
+        <th>Статус</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for res in reservations %}
+        <tr>
+          <td>{{ res.id }}</td>
+          <td>{{ res.customer.name }}</td>
+          <td>{{ res.customer.phone }}</td>
+          <td>{{ res.table.number }}</td>
+          <td>{{ res.date }}</td>
+          <td>{{ res.status }}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="6">Пока нет бронирований.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

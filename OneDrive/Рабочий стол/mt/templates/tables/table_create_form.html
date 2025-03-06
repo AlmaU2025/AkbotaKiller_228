@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <h2>Создать стол</h2>
+  <form method="POST">
+    {% csrf_token %}
+    <label>Номер стола: <input type="number" name="number" required></label><br>
+    <label>Количество мест: <input type="number" name="seats" required></label><br><br>
+    <button type="submit">Создать</button>
+  </form>
+{% endblock %}

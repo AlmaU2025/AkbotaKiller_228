@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Все столики</h2>
+  <a href="{% url 'table_create' %}">Создать стол</a>
+  <ul>
+  {% for t in tables %}
+    <li>Стол #{{ t.number }} | Мест: {{ t.seats }} | {% if t.is_available %}Свободен{% else %}Занят{% endif %}</li>
+  {% endfor %}
+  </ul>
+{% endblock %}

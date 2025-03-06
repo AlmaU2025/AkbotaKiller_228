@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <h2>Информация о клиенте</h2>
+  <p>Имя: {{ customer.name }}</p>
+  <p>Телефон: {{ customer.phone }}</p>
+  <a href="{% url 'customer_list' %}">Назад</a>
+{% endblock %}

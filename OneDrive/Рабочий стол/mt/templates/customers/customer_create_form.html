@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <h2>Создание клиента</h2>
+  <form method="POST">
+    {% csrf_token %}
+    <label for="id_name">Имя:</label>
+    <input id="id_name" type="text" name="name" required>
+    <br>
+    <label for="id_phone">Телефон:</label>
+    <input id="id_phone" type="text" name="phone" required>
+    <br><br>
+    <button type="submit">Создать</button>
+  </form>
+{% endblock %}
